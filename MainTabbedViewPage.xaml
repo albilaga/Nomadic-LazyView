@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:pages="clr-namespace:Nomadic.Views.Pages;assembly=Nomadic"
+             x:Class="Nomadic.MainTabbedViewPage">
+    <Grid>
+        <views:TabView TabStripPlacement="Bottom" x:Name="TabView"
+                       SelectionChanged="TabView_OnSelectionChanged"
+                       TabStripBackgroundColor="{DynamicResource ShellTabBarBackgroundColor}">
+            <pages:MainFeedTabView />
+            <pages:MyInterestsTabView />
+            <pages:ExploreTabView />
+            <pages:LocalTabView />
+            <pages:SettingsTabView />
+        </views:TabView>
+    </Grid>
+</ContentPage>
