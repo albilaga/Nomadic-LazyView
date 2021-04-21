@@ -8,7 +8,7 @@ namespace Nomadic.Views.Pages
         public Explore()
         {
             InitializeComponent();
-            BindingContext = ViewModels.InterestsViewModel.Instance;
+            // BindingContext = ViewModels.InterestsViewModel.Instance;
         }
 
         private async void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)

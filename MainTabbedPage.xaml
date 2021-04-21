@@ -6,9 +6,9 @@
             xmlns:fontawesome="clr-namespace:FontAwesome;assembly=Nomadic"
             x:Class="Nomadic.MainTabbedPage"
             BackgroundColor="{DynamicResource ShellTabBarBackgroundColor}">
-    <pages:MainFeedPage />
-    <pages:MyInterestsPage />
-    <pages:ExplorePage />
-    <pages:LocalPage />
-    <pages:SettingsPage />
+    <!-- <pages:MainFeedPage /> -->
+    <!-- <pages:MyInterestsPage /> -->
+    <!-- <pages:ExplorePage /> -->
+    <!-- <pages:LocalPage /> -->
+    <!-- <pages:SettingsPage /> -->
 </TabbedPage>

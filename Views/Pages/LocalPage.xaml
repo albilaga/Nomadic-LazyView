@@ -13,6 +13,7 @@
             Glyph="{x:Static fontawesome:FontAwesomeIcons.MapPin}"
             Size="20" />
     </ContentPage.IconImageSource>
-    <views:LazyView x:TypeArguments="pages:Local" />
+    <!-- <views:LazyView x:TypeArguments="pages:Local" /> -->
     <!-- <pages:Local /> -->
+    <Label Text="this is local page"></Label>
 </ContentPage>

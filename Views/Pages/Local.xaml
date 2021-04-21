@@ -11,9 +11,9 @@
     BackgroundColor="{DynamicResource PageBackgroundColor}"
     mc:Ignorable="d">
 
-    <ContentPage.BindingContext>
-        <viewModels:LocalViewModel />
-    </ContentPage.BindingContext>
+    <!-- <ContentPage.BindingContext> -->
+    <!--     <viewModels:LocalViewModel /> -->
+    <!-- </ContentPage.BindingContext> -->
 
     <ContentView.Resources>
         <ResourceDictionary>

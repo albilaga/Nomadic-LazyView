@@ -5,6 +5,8 @@
                    xmlns:views="http://xamarin.com/schemas/2020/toolkit"
                    xmlns:fontawesome="clr-namespace:FontAwesome;assembly=Nomadic"
                    xmlns:pages="clr-namespace:Nomadic.Views.Pages;assembly=Nomadic"
+                   xmlns:controls="clr-namespace:Nomadic.Controls;assembly=Nomadic"
+                   xmlns:viewModels="clr-namespace:Nomadic.ViewModels;assembly=Nomadic"
                    Text="Local News"
                    x:Class="Nomadic.Views.Pages.LocalTabView">
     <views:TabViewItem.Icon>
@@ -13,5 +15,8 @@
             Glyph="{x:Static fontawesome:FontAwesomeIcons.MapPin}"
             Size="20" />
     </views:TabViewItem.Icon>
-    <views:LazyView x:TypeArguments="pages:Local" x:Name="LazyView" />
+    <!-- <views:LazyView x:TypeArguments="pages:Local" x:Name="LazyView" /> -->
+    <!-- <Label Text="this is local page" /> -->
+    <controls:LazyViewWithViewModel
+        x:TypeArguments="pages:Local, viewModels:LocalViewModel" />
 </views:TabViewItem>

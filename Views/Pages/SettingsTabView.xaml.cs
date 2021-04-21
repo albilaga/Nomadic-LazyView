@@ -5,7 +5,7 @@ namespace Nomadic.Views.Pages
         public SettingsTabView()
         {
             InitializeComponent();
-            LazyView.BindingContext = ViewModels.SettingsViewModel.Instance;
+            // LazyView.BindingContext = ViewModels.SettingsViewModel.Instance;
             // LazyView. ();
         }
     }

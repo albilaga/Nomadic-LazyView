@@ -7,7 +7,6 @@
     xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:fontawesome="clr-namespace:FontAwesome"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:viewModels="clr-namespace:Nomadic.ViewModels"
     BackgroundColor="{DynamicResource ShellBackgroundColor}"
     mc:Ignorable="d">
 

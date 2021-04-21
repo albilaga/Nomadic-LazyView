@@ -1,38 +1,17 @@
 ﻿using Nomadic.Themes;
-using Plugin.CloudFirestore;
-using System;
 using System.Diagnostics;
 using Nomadic.Views;
 using Nomadic.Views.Pages;
-using Xamarin.CommunityToolkit.UI.Views;
+using Prism.Ioc;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Nomadic.Extensions;
+using Nomadic.ViewModels;
 
 namespace Nomadic
 {
-    public partial class App : Application
+    public partial class App
     {
-        public static Stopwatch Stopwatch { get; } = new Stopwatch();
-
-        public App()
-        {
-            // Set Firestore settings
-            // Call this only when you have've added your Google Services
-            // Link => https://link.medium.com/Z7A83o3O15
-            //CrossCloudFirestore.Current.Instance.FirestoreSettings = new FirestoreSettings
-            //{
-            //    AreTimestampsInSnapshotsEnabled = false,
-            //    IsPersistenceEnabled = true
-            //};
-
-            InitializeComponent();
-
-            // MainPage = new ContentPage
-            // {
-            //     Content = new LazyView<Settings>()
-            // };
-            MainPage = new NavigationPage(new MainPage());
-        }
+        public static Stopwatch Stopwatch { get; } = new();
 
         protected override void OnStart()
         {
@@ -41,6 +20,30 @@ namespace Nomadic
 
         protected override void OnSleep()
         {
+        }
+
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.RegisterForNavigation<MainPage>();
+            containerRegistry.RegisterForNavigation<MainTabbedPage>();
+            containerRegistry.RegisterForNavigation<MainTabbedViewPage>();
+            containerRegistry.RegisterTabbedView<MainFeedTabView, MainFeedViewModel>();
+            containerRegistry.RegisterTabbedView<MyInterestsTabView, InterestsViewModel>();
+            containerRegistry.RegisterTabbedView<ExploreTabView, InterestsViewModel>();
+            containerRegistry.RegisterTabbedView<LocalTabView, LocalViewModel>();
+            containerRegistry.RegisterTabbedView<SettingsTabView, SettingsViewModel>();
+            containerRegistry.RegisterForNavigation<MainFeedPage, MainFeedViewModel>();
+            containerRegistry.RegisterForNavigation<MyInterestsPage, InterestsViewModel>();
+            containerRegistry.RegisterForNavigation<ExplorePage, InterestsViewModel>();
+            containerRegistry.RegisterForNavigation<LocalPage, LocalViewModel>();
+            containerRegistry.RegisterForNavigation<SettingsPage, SettingsViewModel>();
+        }
+
+        protected override async void OnInitialized()
+        {
+            InitializeComponent();
+            await NavigationService.NavigateAsync($"{nameof(NavigationPage)}/{nameof(MainPage)}");
         }
 
         protected override void OnResume()

@@ -11,9 +11,9 @@ namespace Nomadic.Views.Pages
         {
             InitializeComponent();
 
-            Shell.SetNavBarIsVisible(this, false);
+            // Shell.SetNavBarIsVisible(this, false);
 
-            BindingContext = ViewModels.MainFeedViewModel.Instance;
+            // BindingContext = ViewModels.MainFeedViewModel.Instance;
 
             ScrollListCommand = new Command(() =>
             {

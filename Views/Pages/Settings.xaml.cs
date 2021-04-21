@@ -16,7 +16,7 @@ namespace Nomadic.Views.Pages
 
         private async void SignOut_Tapped(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync($"signout");
+            // await Shell.Current.GoToAsync($"signout");
         }
 
         private async void SavedArticles_Tapped(object sender, EventArgs e)

@@ -5,7 +5,13 @@ namespace Nomadic.Views.Pages
         public MainFeedTabView()
         {
             InitializeComponent();
-            LazyView.BindingContext = ViewModels.MainFeedViewModel.Instance;
+            // LazyView.BindingContext = ViewModels.MainFeedViewModel.Instance;
+        }
+
+        protected override void OnBindingContextChanged()
+        {
+            base.OnBindingContextChanged();
+            // LazyView.BindingContext = BindingContext;
         }
     }
 }

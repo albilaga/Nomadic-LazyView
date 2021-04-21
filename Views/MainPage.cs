@@ -1,47 +1,34 @@
-using Nomadic.Views.Pages;
-using Xamarin.CommunityToolkit.UI.Views;
+using Nomadic.ViewModels;
+using Prism.Navigation;
 using Xamarin.Forms;
 
 namespace Nomadic.Views
 {
     public class MainPage : ContentPage
     {
-        private readonly LazyView<Settings> _settings = new LazyView<Settings>();
+        private readonly Button _tabViewButton;
+        private readonly Button _tabPageButton;
 
-        public MainPage()
+        public MainPage(INavigationService navigationService)
         {
+            // BindingContext = ViewModelLocator.
+            var vm = new MainViewModel(navigationService);
+            _tabViewButton = new Button
+            {
+                Text = "Tab View",
+                Command = vm.OpenTabViewCommand,
+            };
+            _tabPageButton = new Button()
+            {
+                Text = "Tab Page",
+                Command = vm.OpenTabPageCommand,
+            };
             Content = new StackLayout
             {
                 Children =
                 {
-                    new Button
-                    {
-                        Text = "Tab View",
-                        Command = new Command(() =>
-                        {
-                            // if (App.Stopwatch.IsRunning)
-                            // {
-                            //     App.Stopwatch.Stop();
-                            // }
-            
-                            App.Stopwatch.Restart();
-                            Navigation.PushAsync(new MainTabbedViewPage());
-                        })
-                    },
-                    new Button
-                    {
-                        Text = "Tab Page",
-                        Command = new Command(() =>
-                        {
-                            // if (App.Stopwatch.IsRunning)
-                            // {
-                            //     App.Stopwatch.Restart();
-                            // }
-            
-                            App.Stopwatch.Restart();
-                            Navigation.PushAsync(new MainTabbedPage());
-                        })
-                    },
+                    _tabViewButton,
+                    _tabPageButton
                 }
             };
             // Content = _settings;
@@ -50,7 +37,19 @@ namespace Nomadic.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            _settings.LoadViewAsync();
+            // _settings.LoadViewAsync();
         }
+
+        // protected override void OnBindingContextChanged()
+        // {
+        //     base.OnBindingContextChanged();
+        //     if (BindingContext is not MainViewModel viewModel)
+        //     {
+        //         return;
+        //     }
+        //
+        //     _tabViewButton.Command = viewModel.OpenTabViewCommand;
+        //     _tabPageButton.Command = viewModel.OpenTabPageCommand;
+        // }
     }
-}   
+}

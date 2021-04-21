@@ -5,7 +5,7 @@ namespace Nomadic.Views.Pages
         public LocalTabView()
         {
             InitializeComponent();
-            LazyView.BindingContext = new ViewModels.LocalViewModel();
+            // LazyView.BindingContext = new ViewModels.LocalViewModel();
         }
     }
 }

@@ -5,7 +5,7 @@ namespace Nomadic.Views.Pages
         public ExploreTabView()
         {
             InitializeComponent();
-            LazyView.BindingContext = ViewModels.InterestsViewModel.Instance;
+            // LazyView.BindingContext = ViewModels.InterestsViewModel.Instance;
         }
     }
 }

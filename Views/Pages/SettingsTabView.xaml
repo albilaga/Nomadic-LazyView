@@ -5,7 +5,10 @@
                    xmlns:views="http://xamarin.com/schemas/2020/toolkit"
                    xmlns:pages="clr-namespace:Nomadic.Views.Pages;assembly=Nomadic"
                    xmlns:fontawesome="clr-namespace:FontAwesome;assembly=Nomadic"
+                   xmlns:controls="clr-namespace:Nomadic.Controls;assembly=Nomadic"
+                   xmlns:viewModels="clr-namespace:Nomadic.ViewModels;assembly=Nomadic"
                    Text="Settings"
+                   BackgroundColor="Red"
                    x:Class="Nomadic.Views.Pages.SettingsTabView">
     <views:TabViewItem.Icon>
         <FontImageSource
@@ -13,6 +16,9 @@
             Glyph="{x:Static fontawesome:FontAwesomeIcons.Cog}"
             Size="20" />
     </views:TabViewItem.Icon>
-    <views:LazyView x:TypeArguments="pages:Settings" x:Name="LazyView" />
-    <!-- <pages:Settings /> -->
+    <!-- <views:LazyView x:TypeArguments="pages:Settings" x:Name="LazyView" /> -->
+    <!-- <pages:Settings BackgroundColor="Red"/> -->
+    <!-- <Label Text="this is settings" /> -->
+    <controls:LazyViewWithViewModel
+        x:TypeArguments="pages:Settings, viewModels:SettingsViewModel" />
 </views:TabViewItem>
