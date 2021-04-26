@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:fontawesome="clr-namespace:FontAwesome;assembly=Nomadic"
+             xmlns:pages="clr-namespace:Nomadic.Views.Pages;assembly=Nomadic"
+             xmlns:views="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="Nomadic.Views.Pages.LocalPage"
+             Title="Local">
+    <ContentPage.IconImageSource>
+        <FontImageSource
+            FontFamily="{StaticResource FontAwesomeSolid}"
+            Glyph="{x:Static fontawesome:FontAwesomeIcons.MapPin}"
+            Size="20" />
+    </ContentPage.IconImageSource>
+    <!-- <views:LazyView x:TypeArguments="pages:Local" /> -->
+    <!-- <pages:Local /> -->
+    <Label Text="this is local page"></Label>
+</ContentPage>

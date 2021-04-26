@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<views:TabViewItem xmlns="http://xamarin.com/schemas/2014/forms"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                   xmlns:views="http://xamarin.com/schemas/2020/toolkit"
+                   xmlns:fontawesome="clr-namespace:FontAwesome;assembly=Nomadic"
+                   xmlns:pages="clr-namespace:Nomadic.Views.Pages;assembly=Nomadic"
+                   xmlns:controls="clr-namespace:Nomadic.Controls;assembly=Nomadic"
+                   xmlns:viewModels="clr-namespace:Nomadic.ViewModels;assembly=Nomadic"
+                   xmlns:xaml="http://prismlibrary.com"
+                   Text="My Interests"
+                   x:Class="Nomadic.Views.Pages.MyInterestsTabView">
+    <views:TabViewItem.Icon>
+        <FontImageSource
+            FontFamily="{StaticResource FontAwesomeSolid}"
+            Glyph="{x:Static fontawesome:FontAwesomeIcons.Star}"
+            Size="20" />
+    </views:TabViewItem.Icon>
+    <!-- <views:LazyView x:TypeArguments="pages:MyInterests" x:Name="LazyView"/> -->
+    <!-- <Label Text="This is my interest page" /> -->
+    <!-- <controls:LazyViewWithViewModel -->
+    <!--     x:TypeArguments="pages:MyInterests, viewModels:InterestsViewModel" /> -->
+    <pages:MyInterests xaml:RegionManager.RegionName="MyInterests" x:Name="MyInterests" />
+</views:TabViewItem>
