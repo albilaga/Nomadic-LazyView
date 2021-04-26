@@ -17,20 +17,27 @@ namespace Nomadic.ViewModels
             App.Stopwatch.Restart();
             var result = await _navigationService.NavigateAsync(
                 $"{nameof(MainTabbedViewPage)}");
-            Debug.WriteLine(result);
+            if (!result.Success)
+            {
+                Debugger.Break();
+            }
         });
 
         private ICommand _openTabbedPageCommand;
 
-        public ICommand OpenTabPageCommand => _openTabbedPageCommand ??= new DelegateCommand(() =>
+        public ICommand OpenTabPageCommand => _openTabbedPageCommand ??= new DelegateCommand(async () =>
         {
             App.Stopwatch.Restart();
-            _navigationService.NavigateAsync(
+            var result = await _navigationService.NavigateAsync(
                 $"{nameof(MainTabbedPage)}?{KnownNavigationParameters.CreateTab}={nameof(MainTabbedPage)}" +
-                $"&{KnownNavigationParameters.CreateTab}={nameof(MyInterestsTabView)}" +
-                $"&{KnownNavigationParameters.CreateTab}={nameof(ExploreTabView)}" +
-                $"&{KnownNavigationParameters.CreateTab}={nameof(LocalTabView)}" +
-                $"&{KnownNavigationParameters.CreateTab}={nameof(SettingsTabView)}");
+                $"&{KnownNavigationParameters.CreateTab}={nameof(MyInterestsPage)}" +
+                $"&{KnownNavigationParameters.CreateTab}={nameof(ExplorePage)}" +
+                $"&{KnownNavigationParameters.CreateTab}={nameof(LocalPage)}" +
+                $"&{KnownNavigationParameters.CreateTab}={nameof(SettingsPage)}");
+            if (!result.Success)
+            {
+                Debugger.Break();
+            }
         });
 
         private ICommand _openCustomTabbedPage;

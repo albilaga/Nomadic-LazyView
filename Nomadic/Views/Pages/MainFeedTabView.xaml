@@ -19,7 +19,8 @@
     <!-- <views:LazyView x:TypeArguments="pages:MainFeed" x:Name="LazyView" /> -->
     <!-- <controls:LazyViewWithViewModel -->
     <!--     x:TypeArguments="pages:MainFeed, viewModels:MainFeedViewModel" />    -->
-    <pages:MainFeed xaml:RegionManager.RegionName="MainFeed" x:Name="MainFeed"/>
-
+    <!-- <pages:MainFeed xaml:RegionManager.RegionName="MainFeed" x:Name="MainFeed"/> -->
+    <controls:LazyViewWithViewModel x:Name="MainFeedView"
+                                    x:TypeArguments="pages:MainFeed, viewModels:MainFeedViewModel" />
     <!-- <Label Text="this is main feed" /> -->
 </views:TabViewItem>

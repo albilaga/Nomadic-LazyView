@@ -5,6 +5,8 @@
              xmlns:fontawesome="clr-namespace:FontAwesome;assembly=Nomadic"
              xmlns:pages="clr-namespace:Nomadic.Views.Pages;assembly=Nomadic"
              xmlns:views="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:controls="clr-namespace:Nomadic.Controls;assembly=Nomadic"
+             xmlns:viewModels="clr-namespace:Nomadic.ViewModels;assembly=Nomadic"
              x:Class="Nomadic.Views.Pages.MyInterestsPage"
              Title="My Interests">
     <ContentPage.IconImageSource>
@@ -13,7 +15,8 @@
             Glyph="{x:Static fontawesome:FontAwesomeIcons.Star}"
             Size="20" />
     </ContentPage.IconImageSource>
-    <views:LazyView x:TypeArguments="pages:MyInterests" />
-
+    <!-- <views:LazyView x:TypeArguments="pages:MyInterests" /> -->
+    <controls:LazyViewWithViewModel IsVisible="False" x:Name="MyInterestView"
+                                    x:TypeArguments="pages:MyInterests, viewModels:InterestsViewModel" />
     <!-- <pages:MyInterests /> -->
 </ContentPage>

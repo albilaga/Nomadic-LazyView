@@ -17,8 +17,10 @@
             Size="20" />
     </views:TabViewItem.Icon>
     <!-- <views:LazyView x:TypeArguments="pages:Local" x:Name="LazyView" /> -->
-    <pages:Local xaml:RegionManager.RegionName="Local" x:Name="Local" />
+    <!-- <pages:Local xaml:RegionManager.RegionName="Local" x:Name="Local" /> -->
     <!-- <Label Text="this is local page" /> -->
     <!-- <controls:LazyViewWithViewModel -->
     <!--     x:TypeArguments="pages:Local, viewModels:LocalViewModel" /> -->
+    <controls:LazyViewWithViewModel
+        x:TypeArguments="pages:Local, viewModels:LocalViewModel" />
 </views:TabViewItem>

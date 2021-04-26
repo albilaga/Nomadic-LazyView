@@ -14,90 +14,11 @@
         <views:TabView TabStripPlacement="Bottom" x:Name="TabView"
                        SelectionChanged="TabView_OnSelectionChanged"
                        TabStripBackgroundColor="{DynamicResource ShellTabBarBackgroundColor}">
-            <!-- <pages:MainFeedTabView /> -->
-            <views:TabViewItem xaml:RegionManager.RegionName="MainFeed"
-                               Text="Feed">
-                <views:TabViewItem.Icon>
-                    <FontImageSource
-                        FontFamily="{StaticResource FontAwesomeSolid}"
-                        Glyph="{x:Static fontawesome:FontAwesomeIcons.Newspaper}"
-                        Size="20" />
-                </views:TabViewItem.Icon>
-                <!-- <views:LazyView x:TypeArguments="pages:MainFeed" x:Name="LazyView" /> -->
-                <controls:LazyViewWithViewModel
-                x:TypeArguments="pages:MainFeed, viewModels:MainFeedViewModel" />
-                <!-- <pages:MainFeed xaml:RegionManager.RegionName="MainFeed" /> -->
-                <!-- <pages:MainFeed /> -->
-                <!-- <Label Text="this is main feed" /> -->
-            </views:TabViewItem>
-            <!-- <pages:MyInterestsTabView /> -->
-            <views:TabViewItem xaml:RegionManager.RegionName="MyInterests"
-                               Text="My Interests">
-                <views:TabViewItem.Icon>
-                    <FontImageSource
-                        FontFamily="{StaticResource FontAwesomeSolid}"
-                        Glyph="{x:Static fontawesome:FontAwesomeIcons.Star}"
-                        Size="20" />
-                </views:TabViewItem.Icon>
-                <!-- <views:LazyView x:TypeArguments="pages:MyInterests" x:Name="LazyView"/> -->
-                <!-- <Label Text="This is my interest page" /> -->
-                <!-- <controls:LazyViewWithViewModel -->
-                <!--     x:TypeArguments="pages:MyInterests, viewModels:InterestsViewModel" /> -->
-                <!-- <pages:MyInterests xaml:RegionManager.RegionName="MyInterests" /> -->
-                <!-- <pages:MyInterests /> -->
-
-            </views:TabViewItem>
-            <!-- <pages:ExploreTabView /> -->
-            <views:TabViewItem xaml:RegionManager.RegionName="Explore"
-                               Text="Explore">
-                <views:TabViewItem.Icon>
-                    <FontImageSource
-                        FontFamily="{StaticResource FontAwesomeSolid}"
-                        Glyph="{x:Static fontawesome:FontAwesomeIcons.Search}"
-                        Size="20" />
-                </views:TabViewItem.Icon>
-                <!-- <views:LazyView x:TypeArguments="pages:Explore" x:Name="LazyView"/> -->
-                <!-- <Label Text="This is explore page"></Label> -->
-                <!-- <controls:LazyViewWithViewModel -->
-                <!--     x:TypeArguments="pages:Explore, viewModels:InterestsViewModel" /> -->
-                <!-- <pages:Explore xaml:RegionManager.RegionName="Explore" /> -->
-                <pages:Explore />
-
-            </views:TabViewItem>
-            <!-- <pages:LocalTabView /> -->
-            <views:TabViewItem xaml:RegionManager.RegionName="Local"
-                               Text="Local">
-                <views:TabViewItem.Icon>
-                    <FontImageSource
-                        FontFamily="{StaticResource FontAwesomeSolid}"
-                        Glyph="{x:Static fontawesome:FontAwesomeIcons.MapPin}"
-                        Size="20" />
-                </views:TabViewItem.Icon>
-                <!-- <views:LazyView x:TypeArguments="pages:Explore" x:Name="LazyView"/> -->
-                <!-- <Label Text="This is explore page"></Label> -->
-                <!-- <controls:LazyViewWithViewModel -->
-                <!--     x:TypeArguments="pages:Explore, viewModels:InterestsViewModel" /> -->
-                <!-- <pages:Local xaml:RegionManager.RegionName="Local" /> -->
-                <pages:Local />
-
-            </views:TabViewItem>
-            <!-- <pages:SettingsTabView /> -->
-            <views:TabViewItem xaml:RegionManager.RegionName="Settings"
-                               Text="Settings">
-                <views:TabViewItem.Icon>
-                    <FontImageSource
-                        FontFamily="{StaticResource FontAwesomeSolid}"
-                        Glyph="{x:Static fontawesome:FontAwesomeIcons.Cog}"
-                        Size="20" />
-                </views:TabViewItem.Icon>
-                <!-- <views:LazyView x:TypeArguments="pages:Explore" x:Name="LazyView"/> -->
-                <!-- <Label Text="This is explore page"></Label> -->
-                <!-- <controls:LazyViewWithViewModel -->
-                <!--     x:TypeArguments="pages:Explore, viewModels:InterestsViewModel" /> -->
-                <!-- <pages:Settings xaml:RegionManager.RegionName="Settings" /> -->
-                <pages:Settings />
-
-            </views:TabViewItem>
+            <pages:MainFeedTabView />
+            <pages:MyInterestsTabView />
+            <pages:ExploreTabView />
+            <pages:LocalTabView />
+            <pages:SettingsTabView />
         </views:TabView>
     </Grid>
 </ContentPage>

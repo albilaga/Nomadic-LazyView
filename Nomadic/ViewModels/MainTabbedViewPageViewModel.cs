@@ -19,12 +19,6 @@ namespace Nomadic.ViewModels
 
         public void Initialize(INavigationParameters parameters)
         {
-            _regionManager.RequestNavigate(nameof(MainFeed), nameof(MainFeedTabView), RegionNavigationCallback);
-            _regionManager.RequestNavigate(nameof(MyInterests), nameof(MyInterests),
-                RegionNavigationCallback);
-            _regionManager.RequestNavigate(nameof(Explore), nameof(Explore), RegionNavigationCallback);
-            _regionManager.RequestNavigate(nameof(Local), nameof(Local), RegionNavigationCallback);
-            _regionManager.RequestNavigate(nameof(Settings), nameof(Settings), RegionNavigationCallback);
         }
 
         private void RegionNavigationCallback(IRegionNavigationResult result)

@@ -5,6 +5,8 @@
              xmlns:fontawesome="clr-namespace:FontAwesome;assembly=Nomadic"
              xmlns:pages="clr-namespace:Nomadic.Views.Pages;assembly=Nomadic"
              xmlns:views="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:controls="clr-namespace:Nomadic.Controls;assembly=Nomadic"
+             xmlns:viewModels="clr-namespace:Nomadic.ViewModels;assembly=Nomadic"
              x:Class="Nomadic.Views.Pages.LocalPage"
              Title="Local">
     <ContentPage.IconImageSource>
@@ -15,5 +17,7 @@
     </ContentPage.IconImageSource>
     <!-- <views:LazyView x:TypeArguments="pages:Local" /> -->
     <!-- <pages:Local /> -->
-    <Label Text="this is local page"></Label>
+    <!-- <Label Text="this is local page"></Label> -->
+    <controls:LazyViewWithViewModel
+        x:TypeArguments="pages:Local, viewModels:LocalViewModel" />
 </ContentPage>

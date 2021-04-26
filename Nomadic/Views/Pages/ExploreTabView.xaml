@@ -6,6 +6,8 @@
                    xmlns:pages="clr-namespace:Nomadic.Views.Pages;assembly=Nomadic"
                    xmlns:fontawesome="clr-namespace:FontAwesome;assembly=Nomadic"
                    xmlns:xaml="http://prismlibrary.com"
+                   xmlns:viewModels="clr-namespace:Nomadic.ViewModels;assembly=Nomadic"
+                   xmlns:controls="clr-namespace:Nomadic.Controls;assembly=Nomadic"
                    x:Class="Nomadic.Views.Pages.ExploreTabView"
                    Text="Explore">
     <views:TabViewItem.Icon>
@@ -18,5 +20,6 @@
     <!-- <Label Text="This is explore page"></Label> -->
     <!-- <controls:LazyViewWithViewModel -->
     <!--     x:TypeArguments="pages:Explore, viewModels:InterestsViewModel" /> -->
-    <pages:Explore xaml:RegionManager.RegionName="Explore" x:Name="Explore" />
+    <controls:LazyViewWithViewModel 
+        x:TypeArguments="pages:Explore, viewModels:InterestsViewModel" />
 </views:TabViewItem>

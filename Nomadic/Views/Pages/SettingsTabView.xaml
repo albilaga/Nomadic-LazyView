@@ -17,8 +17,10 @@
             Size="20" />
     </views:TabViewItem.Icon>
     <!-- <views:LazyView x:TypeArguments="pages:Settings" x:Name="LazyView" /> -->
-    <pages:Settings xaml:RegionManager.RegionName="Settings" x:Name="Settings" />
+    <!-- <pages:Settings xaml:RegionManager.RegionName="Settings" x:Name="Settings" /> -->
     <!-- <Label Text="this is settings" /> -->
     <!-- <controls:LazyViewWithViewModel -->
     <!--     x:TypeArguments="pages:Settings, viewModels:SettingsViewModel" /> -->
+    <controls:LazyViewWithViewModel x:Name="MainFeedView"
+                                    x:TypeArguments="pages:Settings, viewModels:SettingsViewModel" />
 </views:TabViewItem>
