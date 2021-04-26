@@ -18,21 +18,21 @@ namespace Nomadic.Controls
 
         public LazyViewWithViewModel()
         {
-            _loadingIndicator = new ActivityIndicator
-            {
-                IsRunning = true
-            };
-            LoadingView = new ContentView
-            {
-                Content = new Grid
-                {
-                    Children =
-                    {
-                        _loadingIndicator
-                    }
-                }
-            };
-            Content = LoadingView;
+            // _loadingIndicator = new ActivityIndicator
+            // {
+            //     IsRunning = true
+            // };
+            // LoadingView = new ContentView
+            // {
+            //     Content = new Grid
+            //     {
+            //         Children =
+            //         {
+            //             _loadingIndicator
+            //         }
+            //     }
+            // };
+            // Content = LoadingView;
         }
 
         public override ValueTask LoadViewAsync()
@@ -43,14 +43,14 @@ namespace Nomadic.Controls
             // {
             //     await initializeAsync.InitializeAsync(new NavigationParameters());
             // }
-            viewModel.PropertyChanged += OnPropertyChanged;
-            // return base.LoadViewAsync();
-            _view = new TView();
-            _view.SetBinding(View.IsVisibleProperty, nameof(BaseViewModel.Initialized));
-            _view.BindingContext = this.BindingContext;
-            // this.Content = (View) _view;
-            this.SetIsLoaded(true);
-            return new ValueTask((Task) Task.FromResult<bool>(true));
+            // viewModel.PropertyChanged += OnPropertyChanged;
+            return base.LoadViewAsync();
+            // _view = new TView();
+            // _view.SetBinding(View.IsVisibleProperty, nameof(BaseViewModel.Initialized));
+            // _view.BindingContext = this.BindingContext;
+            // // this.Content = (View) _view;
+            // this.SetIsLoaded(true);
+            // return new ValueTask((Task) Task.FromResult<bool>(true));
 
             // await base.LoadViewAsync();
         }
