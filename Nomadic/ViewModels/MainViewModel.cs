@@ -29,7 +29,7 @@ namespace Nomadic.ViewModels
         {
             App.Stopwatch.Restart();
             var result = await _navigationService.NavigateAsync(
-                $"{nameof(MainTabbedPage)}?{KnownNavigationParameters.CreateTab}={nameof(MainTabbedPage)}" +
+                $"{nameof(MainTabbedPage)}?{KnownNavigationParameters.CreateTab}={nameof(MainFeedPage)}" +
                 $"&{KnownNavigationParameters.CreateTab}={nameof(MyInterestsPage)}" +
                 $"&{KnownNavigationParameters.CreateTab}={nameof(ExplorePage)}" +
                 $"&{KnownNavigationParameters.CreateTab}={nameof(LocalPage)}" +
