@@ -6,7 +6,7 @@ namespace Nomadic
 {
     public static class Constants
     {
-        public const string NewsAPIKey = "API key";
+        public const string NewsAPIKey = "api_key";
 
         public static string AppName = "Nomadic"; // Name of your Google App
 
