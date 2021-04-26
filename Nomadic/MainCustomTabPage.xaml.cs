@@ -59,7 +59,7 @@ namespace Nomadic
                 return;
             }
 
-            ValueTask task = default;
+            // ValueTask task = default;
 
             if (_oldPosition >= 0)
             {
@@ -81,10 +81,10 @@ namespace Nomadic
                 switch (selectedTab.BindingContext)
                 {
                     case IInitialize initialize:
-                        initialize.Initialize(_initializeParameters);
+                        initialize.Initialize(parameters);
                         break;
                     case IInitializeAsync initializeAsync:
-                        _ = initializeAsync.InitializeAsync(_initializeParameters);
+                        _ = initializeAsync.InitializeAsync(parameters);
                         break;
                 }
             }

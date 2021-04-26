@@ -28,114 +28,114 @@
                 WideNewsView="{StaticResource WideNewsView}" />
         </ResourceDictionary>
     </ContentView.Resources>
-    <Grid views:StateLayout.CurrentState="{Binding CurrentState}">
-        <views:StateLayout.StateViews>
-            <views:StateView StateKey="Loading">
-                <Grid BackgroundColor="White">
-                    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-                        <ActivityIndicator Color="#1abc9c" />
-                        <Label Text="Loading..." HorizontalOptions="Center" />
-                    </StackLayout>
-                </Grid>
-            </views:StateView>
-            <views:StateView StateKey="Success">
-                <Grid RowSpacing="0">
+    <!-- <Grid views:StateLayout.CurrentState="{Binding CurrentState}"> -->
+    <!--     <views:StateLayout.StateViews> -->
+    <!--         <views:StateView StateKey="Loading"> -->
+    <!--             <Grid BackgroundColor="White"> -->
+    <!--                 <StackLayout VerticalOptions="Center" HorizontalOptions="Center"> -->
+    <!--                     <ActivityIndicator Color="#1abc9c" /> -->
+    <!--                     <Label Text="Loading..." HorizontalOptions="Center" /> -->
+    <!--                 </StackLayout> -->
+    <!--             </Grid> -->
+    <!--         </views:StateView> -->
+    <!--         <views:StateView StateKey="Success"> -->
+    <Grid RowSpacing="0">
 
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="45" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-                    <ScrollView
-                        x:Name="scrollView"
-                        Grid.Row="0"
-                        HorizontalScrollBarVisibility="Never"
-                        Orientation="Horizontal">
+        <ScrollView
+            x:Name="scrollView"
+            Grid.Row="0"
+            HorizontalScrollBarVisibility="Never"
+            Orientation="Horizontal">
 
-                        <controls:CarouselIndicatorView
-                            x:Name="carousel"
-                            CurrentItem="{Binding CurrentTab}"
-                            Items="{Binding TabItems}" />
+            <controls:CarouselIndicatorView
+                x:Name="carousel"
+                CurrentItem="{Binding CurrentTab}"
+                Items="{Binding TabItems}" />
 
-                    </ScrollView>
+        </ScrollView>
 
-                    <cards:CarouselView
-                        x:Name="carouselView"
-                        Grid.Row="1"
-                        BackgroundColor="{DynamicResource PageBackgroundColor}"
-                        IsVerticalSwipeEnabled="False"
-                        ItemsSource="{Binding TabItems}"
-                        SelectedItem="{Binding CurrentTab}"
-                        SwipeThresholdDistance="50">
-                        <cards:CarouselView.ItemTemplate>
-                            <DataTemplate>
-                                <ContentView>
+        <cards:CarouselView
+            x:Name="carouselView"
+            Grid.Row="1"
+            BackgroundColor="{DynamicResource PageBackgroundColor}"
+            IsVerticalSwipeEnabled="False"
+            ItemsSource="{Binding TabItems}"
+            SelectedItem="{Binding CurrentTab}"
+            SwipeThresholdDistance="50">
+            <cards:CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <ContentView>
 
-                                    <Grid BackgroundColor="{DynamicResource PageBackgroundColor}">
+                        <Grid BackgroundColor="{DynamicResource PageBackgroundColor}">
 
-                                        <ListView
-                                            CachingStrategy="RecycleElement"
-                                            HasUnevenRows="True"
-                                            IsPullToRefreshEnabled="True"
-                                            IsRefreshing="{Binding IsRefreshing, Mode=OneWay}"
-                                            ItemTapped="ListView_ItemTapped"
-                                            ItemTemplate="{StaticResource NewsDataTemplateSelector}"
-                                            ItemsSource="{Binding Articles}"
-                                            RefreshCommand="{Binding Path=BindingContext.RefreshCommand, Source={x:Reference carouselView}}"
-                                            SelectionMode="None"
-                                            SeparatorVisibility="None" />
+                            <ListView
+                                CachingStrategy="RecycleElement"
+                                HasUnevenRows="True"
+                                IsPullToRefreshEnabled="True"
+                                IsRefreshing="{Binding IsRefreshing, Mode=OneWay}"
+                                ItemTapped="ListView_ItemTapped"
+                                ItemTemplate="{StaticResource NewsDataTemplateSelector}"
+                                ItemsSource="{Binding Articles}"
+                                RefreshCommand="{Binding Path=BindingContext.RefreshCommand, Source={x:Reference carouselView}}"
+                                SelectionMode="None"
+                                SeparatorVisibility="None" />
 
-                                        <StackLayout
-                                            HorizontalOptions="Center"
-                                            IsVisible="{Binding HasError}"
-                                            VerticalOptions="Center">
-                                            <StackLayout.GestureRecognizers>
-                                                <TapGestureRecognizer
-                                                    Command="{Binding Path=BindingContext.ReloadCommand, Source={x:Reference carouselView}}" />
-                                            </StackLayout.GestureRecognizers>
+                            <StackLayout
+                                HorizontalOptions="Center"
+                                IsVisible="{Binding HasError}"
+                                VerticalOptions="Center">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Command="{Binding Path=BindingContext.ReloadCommand, Source={x:Reference carouselView}}" />
+                                </StackLayout.GestureRecognizers>
 
-                                            <Label
-                                                FontFamily="{StaticResource FontAwesomeSolid}"
-                                                FontSize="55"
-                                                HorizontalOptions="Center"
-                                                Text="{x:Static fontawesome:FontAwesomeIcons.Wifi}"
-                                                TextColor="Gray" />
+                                <Label
+                                    FontFamily="{StaticResource FontAwesomeSolid}"
+                                    FontSize="55"
+                                    HorizontalOptions="Center"
+                                    Text="{x:Static fontawesome:FontAwesomeIcons.Wifi}"
+                                    TextColor="Gray" />
 
-                                            <StackLayout>
+                                <StackLayout>
 
-                                                <Label
-                                                    FontAttributes="Bold"
-                                                    FontSize="25"
-                                                    HorizontalTextAlignment="Center"
-                                                    Text="No Network connection"
-                                                    TextColor="Gray" />
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="25"
+                                        HorizontalTextAlignment="Center"
+                                        Text="No Network connection"
+                                        TextColor="Gray" />
 
-                                                <Label
-                                                    FontAttributes="Bold"
-                                                    FontSize="25"
-                                                    HorizontalTextAlignment="Center"
-                                                    Text="Tap to retry"
-                                                    TextColor="Gray" />
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="25"
+                                        HorizontalTextAlignment="Center"
+                                        Text="Tap to retry"
+                                        TextColor="Gray" />
 
-                                            </StackLayout>
+                                </StackLayout>
 
-                                        </StackLayout>
+                            </StackLayout>
 
-                                        <ActivityIndicator
-                                            HorizontalOptions="Center"
-                                            IsRunning="{Binding IsBusy}"
-                                            VerticalOptions="Center" />
+                            <ActivityIndicator
+                                HorizontalOptions="Center"
+                                IsRunning="{Binding IsBusy}"
+                                VerticalOptions="Center" />
 
-                                    </Grid>
+                        </Grid>
 
-                                </ContentView>
-                            </DataTemplate>
-                        </cards:CarouselView.ItemTemplate>
-                    </cards:CarouselView>
-
-                </Grid>
-            </views:StateView>
-        </views:StateLayout.StateViews>
+                    </ContentView>
+                </DataTemplate>
+            </cards:CarouselView.ItemTemplate>
+        </cards:CarouselView>
 
     </Grid>
+    <!--     </views:StateView> -->
+    <!-- </views:StateLayout.StateViews> -->
+
+    <!-- </Grid> -->
 </ContentView>

@@ -17,7 +17,7 @@ using Xamarin.CommunityToolkit.UI.Views;
 
 namespace Nomadic.ViewModels
 {
-    public class MainFeedViewModel : TabAwareViewModel, IInitializeAsync
+    public class MainFeedViewModel : TabAwareViewModel, IInitialize
     {
         #region properties
 
@@ -490,8 +490,13 @@ namespace Nomadic.ViewModels
 
         public async Task InitializeAsync(INavigationParameters parameters)
         {
+        }
+
+        public async void Initialize(INavigationParameters parameters)
+        {
             await Task.Delay(3000);
-            CurrentState = LayoutState.Success;
+            // CurrentState = LayoutState.Success;
+            Initialized = true;
         }
     }
 }
