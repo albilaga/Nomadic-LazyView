@@ -7,8 +7,8 @@
                    xmlns:fontawesome="clr-namespace:FontAwesome;assembly=Nomadic"
                    xmlns:controls="clr-namespace:Nomadic.Controls;assembly=Nomadic"
                    xmlns:viewModels="clr-namespace:Nomadic.ViewModels;assembly=Nomadic"
+                   xmlns:xaml="http://prismlibrary.com"
                    Text="Settings"
-                   BackgroundColor="Red"
                    x:Class="Nomadic.Views.Pages.SettingsTabView">
     <views:TabViewItem.Icon>
         <FontImageSource
@@ -17,8 +17,8 @@
             Size="20" />
     </views:TabViewItem.Icon>
     <!-- <views:LazyView x:TypeArguments="pages:Settings" x:Name="LazyView" /> -->
-    <!-- <pages:Settings BackgroundColor="Red"/> -->
+    <pages:Settings xaml:RegionManager.RegionName="Settings" x:Name="Settings" />
     <!-- <Label Text="this is settings" /> -->
-    <controls:LazyViewWithViewModel
-        x:TypeArguments="pages:Settings, viewModels:SettingsViewModel" />
+    <!-- <controls:LazyViewWithViewModel -->
+    <!--     x:TypeArguments="pages:Settings, viewModels:SettingsViewModel" /> -->
 </views:TabViewItem>

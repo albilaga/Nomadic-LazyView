@@ -17,30 +17,30 @@ namespace Nomadic
 
         private async void TabView_OnSelectionChanged(object sender, TabSelectionChangedEventArgs e)
         {
-            if (_oldPosition == TabView.SelectedIndex)
-            {
-                return;
-            }
-
-            if (TabView.TabItems[_oldPosition].Content?.BindingContext is IActiveAware oldTabAware)
-            {
-                oldTabAware.IsActive = false;
-            }
-
-            var selectedTab = TabView.TabItems[TabView.SelectedIndex];
-
-            if (selectedTab.Content?.BindingContext is IActiveAware newTabAware)
-            {
-                newTabAware.IsActive = true;
-            }
-
-
-            if (selectedTab.Content is BaseLazyView {IsLoaded: false} lazyView)
-            {
-                await lazyView.LoadViewAsync();
-            }
-
-            _oldPosition = TabView.SelectedIndex;
+            // if (_oldPosition == TabView.SelectedIndex)
+            // {
+            //     return;
+            // }
+            //
+            // if (TabView.TabItems[_oldPosition].Content?.BindingContext is IActiveAware oldTabAware)
+            // {
+            //     oldTabAware.IsActive = false;
+            // }
+            //
+            // var selectedTab = TabView.TabItems[TabView.SelectedIndex];
+            //
+            // if (selectedTab.Content?.BindingContext is IActiveAware newTabAware)
+            // {
+            //     newTabAware.IsActive = true;
+            // }
+            //
+            //
+            // if (selectedTab.Content is BaseLazyView {IsLoaded: false} lazyView)
+            // {
+            //     await lazyView.LoadViewAsync();
+            // }
+            //
+            // _oldPosition = TabView.SelectedIndex;
         }
 
         protected override void LayoutChildren(double x, double y, double width, double height)

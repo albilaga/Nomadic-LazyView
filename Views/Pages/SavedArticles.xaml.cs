@@ -16,7 +16,7 @@ namespace Nomadic.Views.Pages
         {
             InitializeComponent();
             Shell.SetTabBarIsVisible(this, false);
-            BindingContext = ViewModels.SavedArticlesViewModels.Instance;
+            // BindingContext = ViewModels.SavedArticlesViewModels.Instance;
         }
 
         private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)

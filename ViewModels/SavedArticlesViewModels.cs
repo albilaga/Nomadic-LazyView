@@ -259,6 +259,6 @@ namespace Nomadic.ViewModels
         /// <summary>
         /// Gets an instance of this class
         /// </summary>
-        public static SavedArticlesViewModels Instance { get; } = new SavedArticlesViewModels();
+        // public static SavedArticlesViewModels Instance { get; } = new SavedArticlesViewModels();
     }
 }

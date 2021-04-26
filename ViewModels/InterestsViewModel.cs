@@ -241,11 +241,11 @@ namespace Nomadic.ViewModels
                 }
                 else
                 {
-                    foreach (var interest in Interests)
-                    {
-                        interest.IsInterestAdded = MainFeedViewModel.Instance.TabItems
-                            .Where(s => s.Title.ToLower().Equals(interest.Title.ToLower())).Any();
-                    }
+                    // foreach (var interest in Interests)
+                    // {
+                    //     interest.IsInterestAdded = MainFeedViewModel.Instance.TabItems
+                    //         .Where(s => s.Title.ToLower().Equals(interest.Title.ToLower())).Any();
+                    // }
                 }
 
                 InterestsSearchList = Interests;
@@ -497,9 +497,9 @@ namespace Nomadic.ViewModels
                 addableTabItem.Articles.AddRange(articles);
                 addableTabItem.IsBusy = false;
 
-                MainFeedViewModel.Instance.TabItems.Insert(
-                    MainFeedViewModel.Instance.TabItems.IndexOf(MainFeedViewModel.Instance.TabItems.LastOrDefault()) +
-                    1, addableTabItem);
+                // MainFeedViewModel.Instance.TabItems.Insert(
+                //     MainFeedViewModel.Instance.TabItems.IndexOf(MainFeedViewModel.Instance.TabItems.LastOrDefault()) +
+                //     1, addableTabItem);
 
                 string isloggedIn = Settings.GetSetting(Settings.AppPrefrences.IsLoggedIn);
 
@@ -531,10 +531,10 @@ namespace Nomadic.ViewModels
                 string userInterestsJson = JsonConvert.SerializeObject(userInterestsList);
                 Settings.AddSetting(Settings.AppPrefrences.Interests, userInterestsJson);
 
-                var removableTabItem = MainFeedViewModel.Instance.TabItems
-                    .Where(s => s.Title.ToLower().Equals(interest.Title.ToLower())).FirstOrDefault();
+                // var removableTabItem = MainFeedViewModel.Instance.TabItems
+                //     .Where(s => s.Title.ToLower().Equals(interest.Title.ToLower())).FirstOrDefault();
 
-                MainFeedViewModel.Instance.TabItems.Remove(removableTabItem);
+                // MainFeedViewModel.Instance.TabItems.Remove(removableTabItem);
 
                 string isloggedIn = Settings.GetSetting(Settings.AppPrefrences.IsLoggedIn);
 
@@ -602,6 +602,15 @@ namespace Nomadic.ViewModels
         /// <summary>
         /// Gets an Instance of this class
         /// </summary>
-        public static InterestsViewModel Instance { get; } = new InterestsViewModel();
+        // public static InterestsViewModel Instance { get; } = new InterestsViewModel();
+        protected override void OnTabViewActivated()
+        {
+            base.OnTabViewActivated();
+        }
+
+        protected override void OnTabViewDeactivated()
+        {
+            base.OnTabViewDeactivated();
+        }
     }
 }

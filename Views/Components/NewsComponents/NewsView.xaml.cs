@@ -41,16 +41,16 @@ namespace Nomadic.Views.Components.NewsComponents
 
             var parentBindingContext = viewCell.Parent.Parent.BindingContext;
 
-            if (parentBindingContext != null && parentBindingContext == ViewModels.SavedArticlesViewModels.Instance)
-            {
-                ViewModels.SavedArticlesViewModels.Instance.CurrentArticle = obj;
-                await PopupNavigation.Instance.PushAsync(new PopupComponents.SavedArticlesSavePopup());
-            }
-            else
-            {
-                ViewModels.MainFeedViewModel.Instance.CurrentArticle = obj;
-                await PopupNavigation.Instance.PushAsync(new PopupComponents.MainFeedSavePopup());
-            }
+            // if (parentBindingContext != null && parentBindingContext == ViewModels.SavedArticlesViewModels.Instance)
+            // {
+            //     // ViewModels.SavedArticlesViewModels.Instance.CurrentArticle = obj;
+            //     await PopupNavigation.Instance.PushAsync(new PopupComponents.SavedArticlesSavePopup());
+            // }
+            // else
+            // {
+            //     // ViewModels.MainFeedViewModel.Instance.CurrentArticle = obj;
+            //     await PopupNavigation.Instance.PushAsync(new PopupComponents.MainFeedSavePopup());
+            // }
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Nomadic.Views.Components.PopupComponents
         public MainFeedSavePopup()
         {
             InitializeComponent();
-            BindingContext = ViewModels.MainFeedViewModel.Instance;
+            // BindingContext = ViewModels.MainFeedViewModel.Instance;
         }
     }
 }

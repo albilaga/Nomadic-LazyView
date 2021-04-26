@@ -1,4 +1,3 @@
-using System;
 using System.Threading.Tasks;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
@@ -10,12 +9,9 @@ namespace Nomadic.Controls
     {
         public override ValueTask LoadViewAsync()
         {
-            var view = new TView();
-            var viewModel = Activator.CreateInstance<TViewModel>();
-            view.BindingContext = viewModel;
-            Content = view;
-            SetIsLoaded(true);
-            return new ValueTask(Task.FromResult(true));
+            var viewModel = App.Current.Container.Resolve(typeof(TViewModel));
+            BindingContext = viewModel;
+            return base.LoadViewAsync();
         }
     }
 }

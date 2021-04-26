@@ -18,8 +18,8 @@ namespace Nomadic.Views.Pages
             {
                 var selected = e.CurrentSelection.FirstOrDefault() as Models.Interest;
 
-                ViewModels.InterestsViewModel.Instance.CurrentInterest = selected;
-                ViewModels.InterestsViewModel.Instance.CurrentItem = new Models.Tab { Title = selected.Title };
+                // ViewModels.InterestsViewModel.Instance.CurrentInterest = selected;
+                // ViewModels.InterestsViewModel.Instance.CurrentItem = new Models.Tab { Title = selected.Title };
 
                 await Shell.Current.GoToAsync($"interestarticles");
 

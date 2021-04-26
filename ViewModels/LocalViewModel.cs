@@ -11,7 +11,7 @@ using Xamarin.Essentials;
 
 namespace Nomadic.ViewModels
 {
-    public class LocalViewModel : BaseViewModel
+    public class LocalViewModel : TabAwareViewModel
     {
         #region Properties
 
@@ -236,5 +236,15 @@ namespace Nomadic.ViewModels
         }
 
         #endregion
+        
+        protected override void OnTabViewActivated()
+        {
+            base.OnTabViewActivated();
+        }
+
+        protected override void OnTabViewDeactivated()
+        {
+            base.OnTabViewDeactivated();
+        }
     }
 }

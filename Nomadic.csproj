@@ -19,6 +19,7 @@
     <PackageReference Include="Plugin.CloudFirestore" Version="4.1.0" />
     <PackageReference Include="Plugin.FirebaseAuth" Version="4.1.0" />
     <PackageReference Include="Prism.DryIoc.Forms" Version="8.0.0.1909" />
+    <PackageReference Include="Prism.Forms.Regions" Version="8.0.0.1909" />
     <PackageReference Include="PSC.Xamarin.MvvmHelpers" Version="1.0.0" />
     <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.2" />
     <PackageReference Include="Xamarin.Auth" Version="1.7.0" />

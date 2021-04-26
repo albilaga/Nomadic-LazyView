@@ -15,7 +15,7 @@ namespace Nomadic.Views.Components.PopupComponents
         public SavedArticlesSavePopup()
         {
             InitializeComponent();
-            BindingContext = ViewModels.SavedArticlesViewModels.Instance;
+            // BindingContext = ViewModels.SavedArticlesViewModels.Instance;
         }
     }
 }

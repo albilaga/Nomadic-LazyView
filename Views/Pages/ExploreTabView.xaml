@@ -5,8 +5,7 @@
                    xmlns:views="http://xamarin.com/schemas/2020/toolkit"
                    xmlns:pages="clr-namespace:Nomadic.Views.Pages;assembly=Nomadic"
                    xmlns:fontawesome="clr-namespace:FontAwesome;assembly=Nomadic"
-                   xmlns:controls="clr-namespace:Nomadic.Controls;assembly=Nomadic"
-                   xmlns:viewModels="clr-namespace:Nomadic.ViewModels;assembly=Nomadic"
+                   xmlns:xaml="http://prismlibrary.com"
                    x:Class="Nomadic.Views.Pages.ExploreTabView"
                    Text="Explore">
     <views:TabViewItem.Icon>
@@ -17,6 +16,7 @@
     </views:TabViewItem.Icon>
     <!-- <views:LazyView x:TypeArguments="pages:Explore" x:Name="LazyView"/> -->
     <!-- <Label Text="This is explore page"></Label> -->
-    <controls:LazyViewWithViewModel
-        x:TypeArguments="pages:Explore, viewModels:InterestsViewModel" />
+    <!-- <controls:LazyViewWithViewModel -->
+    <!--     x:TypeArguments="pages:Explore, viewModels:InterestsViewModel" /> -->
+    <pages:Explore xaml:RegionManager.RegionName="Explore" x:Name="Explore" />
 </views:TabViewItem>

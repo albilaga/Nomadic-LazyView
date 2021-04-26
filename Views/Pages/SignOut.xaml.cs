@@ -16,7 +16,7 @@ namespace Nomadic.Views.Pages
         {
             InitializeComponent();
             Shell.SetTabBarIsVisible(this, false);
-            BindingContext = ViewModels.SettingsViewModel.Instance;
+            // BindingContext = ViewModels.SettingsViewModel.Instance;
         }
     }
 }

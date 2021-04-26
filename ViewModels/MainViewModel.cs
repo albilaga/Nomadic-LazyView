@@ -16,11 +16,7 @@ namespace Nomadic.ViewModels
         {
             App.Stopwatch.Restart();
             var result = await _navigationService.NavigateAsync(
-                $"{nameof(MainTabbedViewPage)}?{KnownNavigationParameters.CreateTab}={nameof(MainFeedTabView)}" +
-                $"&{KnownNavigationParameters.CreateTab}={nameof(MyInterestsTabView)}" +
-                $"&{KnownNavigationParameters.CreateTab}={nameof(ExploreTabView)}" +
-                $"&{KnownNavigationParameters.CreateTab}={nameof(LocalTabView)}" +
-                $"&{KnownNavigationParameters.CreateTab}={nameof(SettingsTabView)}");
+                $"{nameof(MainTabbedViewPage)}");
             Debug.WriteLine(result);
         });
 
@@ -30,11 +26,20 @@ namespace Nomadic.ViewModels
         {
             App.Stopwatch.Restart();
             _navigationService.NavigateAsync(
-                $"{nameof(MainTabbedViewPage)}?{KnownNavigationParameters.CreateTab}={nameof(MainTabbedPage)}" +
+                $"{nameof(MainTabbedPage)}?{KnownNavigationParameters.CreateTab}={nameof(MainTabbedPage)}" +
                 $"&{KnownNavigationParameters.CreateTab}={nameof(MyInterestsTabView)}" +
                 $"&{KnownNavigationParameters.CreateTab}={nameof(ExploreTabView)}" +
                 $"&{KnownNavigationParameters.CreateTab}={nameof(LocalTabView)}" +
                 $"&{KnownNavigationParameters.CreateTab}={nameof(SettingsTabView)}");
+        });
+
+        private ICommand _openCustomTabbedPage;
+
+        public ICommand OpenCustomTabbedPage => _openCustomTabbedPage ??= new DelegateCommand(() =>
+        {
+            App.Stopwatch.Restart();
+            _navigationService.NavigateAsync(
+                $"{nameof(MainCustomTabPage)}?param=tes");
         });
 
         public MainViewModel(INavigationService navigationService)

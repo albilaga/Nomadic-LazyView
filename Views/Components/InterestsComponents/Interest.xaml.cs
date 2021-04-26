@@ -24,12 +24,12 @@ namespace Nomadic.Views.Components.InterestsComponents
             if (obj.IsInterestAdded)
             {
                 obj.IsInterestAdded = false;
-                ViewModels.InterestsViewModel.Instance.RemoveUserInterest(obj);
+                // ViewModels.InterestsViewModel.Instance.RemoveUserInterest(obj);
             }
             else
             {
                 obj.IsInterestAdded = true;
-                await ViewModels.InterestsViewModel.Instance.AddUserInterest(obj).ConfigureAwait(false);
+                // await ViewModels.InterestsViewModel.Instance.AddUserInterest(obj).ConfigureAwait(false);
             }
         }
     }

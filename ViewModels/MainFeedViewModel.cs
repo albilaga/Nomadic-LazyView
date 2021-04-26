@@ -15,7 +15,7 @@ using System.Windows.Input;
 
 namespace Nomadic.ViewModels
 {
-    public class MainFeedViewModel : BaseViewModel
+    public class MainFeedViewModel : TabAwareViewModel
     {
 
         #region properties
@@ -460,7 +460,15 @@ namespace Nomadic.ViewModels
         /// <summary>
         /// Gets an Instance of this class
         /// </summary>
-        public static MainFeedViewModel Instance { get; } = new MainFeedViewModel();
+        // public static MainFeedViewModel Instance { get; } = new MainFeedViewModel();
+        protected override void OnTabViewActivated()
+        {
+            base.OnTabViewActivated();
+        }
 
+        protected override void OnTabViewDeactivated()
+        {
+            base.OnTabViewDeactivated();
+        }
     }
 }

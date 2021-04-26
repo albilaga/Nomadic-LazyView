@@ -7,6 +7,7 @@
                    xmlns:pages="clr-namespace:Nomadic.Views.Pages;assembly=Nomadic"
                    xmlns:controls="clr-namespace:Nomadic.Controls;assembly=Nomadic"
                    xmlns:viewModels="clr-namespace:Nomadic.ViewModels;assembly=Nomadic"
+                   xmlns:xaml="http://prismlibrary.com"
                    Text="Local News"
                    x:Class="Nomadic.Views.Pages.LocalTabView">
     <views:TabViewItem.Icon>
@@ -16,7 +17,8 @@
             Size="20" />
     </views:TabViewItem.Icon>
     <!-- <views:LazyView x:TypeArguments="pages:Local" x:Name="LazyView" /> -->
+    <pages:Local xaml:RegionManager.RegionName="Local" x:Name="Local" />
     <!-- <Label Text="this is local page" /> -->
-    <controls:LazyViewWithViewModel
-        x:TypeArguments="pages:Local, viewModels:LocalViewModel" />
+    <!-- <controls:LazyViewWithViewModel -->
+    <!--     x:TypeArguments="pages:Local, viewModels:LocalViewModel" /> -->
 </views:TabViewItem>

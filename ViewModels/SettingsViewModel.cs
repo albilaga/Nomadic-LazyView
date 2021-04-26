@@ -8,12 +8,14 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Nomadic.Services;
+using Prism.Navigation;
 using Xamarin.Auth;
 using Xamarin.Forms;
 
 namespace Nomadic.ViewModels
 {
-    public class SettingsViewModel : BaseViewModel
+    public class SettingsViewModel : TabAwareViewModel,IInitialize,INavigatedAware
     {
         #region Properties
 
@@ -109,7 +111,7 @@ namespace Nomadic.ViewModels
         /// <summary>
         /// Constructor
         /// </summary>
-        public SettingsViewModel()
+        public SettingsViewModel(IDummyService dummyService)
         {
             CurrentUser = new Models.User();
             _ = GetSettings();
@@ -397,8 +399,8 @@ namespace Nomadic.ViewModels
 
                 if (savedInterests != null && savedInterests.Any())
                 {
-                    await MainFeedViewModel.Instance.GetUserData().ConfigureAwait(false);
-                    await InterestsViewModel.Instance.LoadInterestsList().ConfigureAwait(false);
+                    // await MainFeedViewModel.Instance.GetUserData().ConfigureAwait(false);
+                    // await InterestsViewModel.Instance.LoadInterestsList().ConfigureAwait(false);
                 }
             }
             else
@@ -504,6 +506,30 @@ namespace Nomadic.ViewModels
         /// <summary>
         /// Gets an Instance of this class
         /// </summary>
-        public static SettingsViewModel Instance { get; } = new SettingsViewModel();
+        // public static SettingsViewModel Instance { get; } = new SettingsViewModel();
+        protected override void OnTabViewActivated()
+        {
+            base.OnTabViewActivated();
+        }
+
+        protected override void OnTabViewDeactivated()
+        {
+            base.OnTabViewDeactivated();
+        }
+
+        public void Initialize(INavigationParameters parameters)
+        {
+            Debug.WriteLine("test");
+        }
+
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            base.OnNavigatedTo(parameters);
+        }
+
+        public override void OnNavigatedFrom(INavigationParameters parameters)
+        {
+            base.OnNavigatedFrom(parameters);
+        }
     }
 }

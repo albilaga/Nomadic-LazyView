@@ -1,11 +1,4 @@
-﻿using Rg.Plugins.Popup.Services;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -42,16 +35,16 @@ namespace Nomadic.Views.Components.NewsComponents
 
             var parentBindingContext = viewCell.Parent.Parent.BindingContext;
 
-            if (parentBindingContext != null && parentBindingContext == ViewModels.SavedArticlesViewModels.Instance)
-            {
-                (parentBindingContext as ViewModels.SavedArticlesViewModels).CurrentArticle = obj;
-                await PopupNavigation.Instance.PushAsync(new PopupComponents.SavedArticlesSavePopup());
-            }
-            else
-            {
-                ViewModels.MainFeedViewModel.Instance.CurrentArticle = obj;
-                await PopupNavigation.Instance.PushAsync(new PopupComponents.MainFeedSavePopup());
-            }
+            // if (parentBindingContext != null && parentBindingContext == ViewModels.SavedArticlesViewModels.Instance)
+            // {
+            //     (parentBindingContext as ViewModels.SavedArticlesViewModels).CurrentArticle = obj;
+            //     await PopupNavigation.Instance.PushAsync(new PopupComponents.SavedArticlesSavePopup());
+            // }
+            // else
+            // {
+            //     // ViewModels.MainFeedViewModel.Instance.CurrentArticle = obj;
+            //     await PopupNavigation.Instance.PushAsync(new PopupComponents.MainFeedSavePopup());
+            // }
         }
     }
 }

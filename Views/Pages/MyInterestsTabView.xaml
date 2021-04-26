@@ -7,6 +7,7 @@
                    xmlns:pages="clr-namespace:Nomadic.Views.Pages;assembly=Nomadic"
                    xmlns:controls="clr-namespace:Nomadic.Controls;assembly=Nomadic"
                    xmlns:viewModels="clr-namespace:Nomadic.ViewModels;assembly=Nomadic"
+                   xmlns:xaml="http://prismlibrary.com"
                    Text="My Interests"
                    x:Class="Nomadic.Views.Pages.MyInterestsTabView">
     <views:TabViewItem.Icon>
@@ -17,6 +18,7 @@
     </views:TabViewItem.Icon>
     <!-- <views:LazyView x:TypeArguments="pages:MyInterests" x:Name="LazyView"/> -->
     <!-- <Label Text="This is my interest page" /> -->
-    <controls:LazyViewWithViewModel
-        x:TypeArguments="pages:MyInterests, viewModels:InterestsViewModel" />
+    <!-- <controls:LazyViewWithViewModel -->
+    <!--     x:TypeArguments="pages:MyInterests, viewModels:InterestsViewModel" /> -->
+    <pages:MyInterests xaml:RegionManager.RegionName="MyInterests" x:Name="MyInterests" />
 </views:TabViewItem>
