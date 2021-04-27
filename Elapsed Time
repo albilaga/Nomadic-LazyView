@@ -1,0 +1,25 @@
+LazyViewWithViewModel with tabview activated
+
+SW end in Nomadic.MainTabbedViewPage: 3823
+SW end in Nomadic.MainTabbedPage: 4439
+SW end in Nomadic.MainTabbedPage: 4492 --> offscreen 4
+SW end in Nomadic.MainCustomTabPage: 3878
+SW end in Nomadic.MainTabbedPageWithoutLazyView: 5499
+SW end in Nomadic.MainTabbedPageWithoutLazyView: 6134 --> offscreen 4
+SW end in Nomadic.Views.Pages.MainFeedPageWithoutLazyView: 3344
+
+SW end in Nomadic.MainTabbedViewPage: 3861
+SW end in Nomadic.MainTabbedPage: 4586
+SW end in Nomadic.MainTabbedPage: 4537 --> offscreen 4
+SW end in Nomadic.MainCustomTabPage: 3737
+SW end in Nomadic.MainTabbedPageWithoutLazyView: 5551
+SW end in Nomadic.MainTabbedPageWithoutLazyView: 6002 --> offscreen 4
+SW end in Nomadic.Views.Pages.MainFeedPageWithoutLazyView: 3481
+
+SW end in Nomadic.MainTabbedViewPage: 3831
+SW end in Nomadic.MainTabbedPage: 4483
+SW end in Nomadic.MainTabbedPage: 4488 --> offscreen 4
+SW end in Nomadic.MainCustomTabPage: 3787
+SW end in Nomadic.MainTabbedPageWithoutLazyView: 5638
+SW end in Nomadic.MainTabbedPageWithoutLazyView: 5984 --> offscreen 4
+SW end in Nomadic.Views.Pages.MainFeedPageWithoutLazyView: 3315

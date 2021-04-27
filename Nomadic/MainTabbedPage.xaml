@@ -5,6 +5,7 @@
             x:Class="Nomadic.MainTabbedPage"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             android:TabbedPage.ToolbarPlacement="Bottom"
+            android:TabbedPage.OffscreenPageLimit="4"
             BackgroundColor="{DynamicResource ShellTabBarBackgroundColor}">
     <!-- <pages:MainFeedPage /> -->
     <!-- <pages:MyInterestsPage /> -->
