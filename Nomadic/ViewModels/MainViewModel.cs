@@ -61,11 +61,28 @@ namespace Nomadic.ViewModels
 
         private ICommand _openCustomTabbedPage;
 
-        public ICommand OpenCustomTabbedPage => _openCustomTabbedPage ??= new DelegateCommand(() =>
+        public ICommand OpenCustomTabbedPage => _openCustomTabbedPage ??= new DelegateCommand(async () =>
         {
             App.Stopwatch.Restart();
-            _navigationService.NavigateAsync(
+            var result = await _navigationService.NavigateAsync(
                 $"{nameof(MainCustomTabPage)}?param=tes");
+            if (!result.Success)
+            {
+                Debugger.Break();
+            }
+        });
+
+        private ICommand _openStandalonePage;
+
+        public ICommand OpenStandalonePage => _openStandalonePage ??= new DelegateCommand(async () =>
+        {
+            App.Stopwatch.Restart();
+            var result = await _navigationService.NavigateAsync(
+                $"{nameof(MainFeedPageWithoutLazyView)}?param=tes");
+            if (!result.Success)
+            {
+                Debugger.Break();
+            }
         });
 
 
