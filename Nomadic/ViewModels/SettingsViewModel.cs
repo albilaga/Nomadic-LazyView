@@ -17,6 +17,7 @@ namespace Nomadic.ViewModels
 {
     public class SettingsViewModel : TabAwareViewModel,IInitialize,INavigatedAware
     {
+        private bool _isDataLoaded;
         #region Properties
 
         /// <summary>
@@ -114,7 +115,6 @@ namespace Nomadic.ViewModels
         public SettingsViewModel(IDummyService dummyService)
         {
             CurrentUser = new Models.User();
-            _ = GetSettings();
         }
 
         #endregion
@@ -507,9 +507,14 @@ namespace Nomadic.ViewModels
         /// Gets an Instance of this class
         /// </summary>
         // public static SettingsViewModel Instance { get; } = new SettingsViewModel();
-        protected override void OnTabViewActivated()
+        protected override async void OnTabViewActivated()
         {
             base.OnTabViewActivated();
+            if (!_isDataLoaded)
+            {
+                await GetSettings();
+                _isDataLoaded = true;
+            }
         }
 
         protected override void OnTabViewDeactivated()

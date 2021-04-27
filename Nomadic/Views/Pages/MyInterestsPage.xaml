@@ -16,7 +16,7 @@
             Size="20" />
     </ContentPage.IconImageSource>
     <!-- <views:LazyView x:TypeArguments="pages:MyInterests" /> -->
-    <controls:LazyViewWithViewModel IsVisible="False" x:Name="MyInterestView"
+    <controls:LazyViewWithViewModel x:Name="MyInterestView"
                                     x:TypeArguments="pages:MyInterests, viewModels:InterestsViewModel" />
     <!-- <pages:MyInterests /> -->
 </ContentPage>

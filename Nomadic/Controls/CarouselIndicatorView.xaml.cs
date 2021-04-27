@@ -56,7 +56,7 @@ namespace Nomadic.Controls
             {
                 if (parent is Views.Pages.MainFeed mainFeed)
                 {
-                    mainFeed.ScrollListCommand.Execute(null);
+                    // mainFeed.ScrollListCommand.Execute(null);
                     break;
                 }
                 parent = parent.Parent;

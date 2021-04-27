@@ -1,5 +1,8 @@
 using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
+using Nomadic.Models;
+using Nomadic.ViewModels;
 using Prism;
 using Prism.Navigation;
 using Xamarin.CommunityToolkit.UI.Views;
@@ -13,34 +16,67 @@ namespace Nomadic
         public MainTabbedViewPage()
         {
             InitializeComponent();
+            _ = CheckFirstTab();
+        }
+
+        private async Task CheckFirstTab()
+        {
+            var selectedTab = TabView.TabItems[0];
+            if (selectedTab.Content is BaseLazyView {IsLoaded: false} lazyView)
+            {
+                await lazyView.LoadViewAsync();
+                switch (lazyView.BindingContext)
+                {
+                    case IInitialize initialize:
+                        initialize.Initialize(null);
+                        break;
+                    case IInitializeAsync initializeAsync:
+                        _ = initializeAsync.InitializeAsync(null);
+                        break;
+                }
+            }
+
+            if (selectedTab.Content.BindingContext is IActiveAware activeAware)
+            {
+                activeAware.IsActive = true;
+            }
         }
 
         private async void TabView_OnSelectionChanged(object sender, TabSelectionChangedEventArgs e)
         {
-            // if (_oldPosition == TabView.SelectedIndex)
-            // {
-            //     return;
-            // }
-            //
-            // if (TabView.TabItems[_oldPosition].Content?.BindingContext is IActiveAware oldTabAware)
-            // {
-            //     oldTabAware.IsActive = false;
-            // }
-            //
-            // var selectedTab = TabView.TabItems[TabView.SelectedIndex];
-            //
-            // if (selectedTab.Content?.BindingContext is IActiveAware newTabAware)
-            // {
-            //     newTabAware.IsActive = true;
-            // }
-            //
-            //
-            // if (selectedTab.Content is BaseLazyView {IsLoaded: false} lazyView)
-            // {
-            //     await lazyView.LoadViewAsync();
-            // }
-            //
-            // _oldPosition = TabView.SelectedIndex;
+            if (_oldPosition == TabView.SelectedIndex)
+            {
+                return;
+            }
+
+            if (TabView.TabItems[_oldPosition].Content?.BindingContext is IActiveAware oldTabAware)
+            {
+                oldTabAware.IsActive = false;
+            }
+
+            var selectedTab = TabView.TabItems[TabView.SelectedIndex];
+
+            if (selectedTab.Content?.BindingContext is IActiveAware newTabAware)
+            {
+                newTabAware.IsActive = true;
+            }
+
+
+            if (selectedTab.Content is BaseLazyView {IsLoaded: false} lazyView)
+            {
+                await lazyView.LoadViewAsync();
+                switch (selectedTab.Content.BindingContext)
+                {
+                    case IInitialize initialize:
+                        initialize.Initialize(null);
+                        break;
+                    case IInitializeAsync initializeAsync:
+                        _ = initializeAsync.InitializeAsync(null);
+                        break;
+                }
+            }
+
+            _oldPosition = TabView.SelectedIndex;
         }
 
         protected override void LayoutChildren(double x, double y, double width, double height)

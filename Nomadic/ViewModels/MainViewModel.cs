@@ -40,6 +40,25 @@ namespace Nomadic.ViewModels
             }
         });
 
+        private ICommand _openTabbedPageWithoutLazyViewCommand;
+
+        public ICommand OpenTabbedPageWithoutLazyViewCommand => _openTabbedPageWithoutLazyViewCommand ??=
+            new DelegateCommand(
+                async () =>
+                {
+                    App.Stopwatch.Restart();
+                    var result = await _navigationService.NavigateAsync(
+                        $"{nameof(MainTabbedPage)}?{KnownNavigationParameters.CreateTab}={nameof(MainFeedPageWithoutLazyView)}" +
+                        $"&{KnownNavigationParameters.CreateTab}={nameof(MyInterestsPageWithoutLazyView)}" +
+                        $"&{KnownNavigationParameters.CreateTab}={nameof(ExplorePageWithoutLazyView)}" +
+                        $"&{KnownNavigationParameters.CreateTab}={nameof(LocalPageWithoutLazyView)}" +
+                        $"&{KnownNavigationParameters.CreateTab}={nameof(SettingsPageWithoutLazyView)}");
+                    if (!result.Success)
+                    {
+                        Debugger.Break();
+                    }
+                });
+
         private ICommand _openCustomTabbedPage;
 
         public ICommand OpenCustomTabbedPage => _openCustomTabbedPage ??= new DelegateCommand(() =>
@@ -48,6 +67,7 @@ namespace Nomadic.ViewModels
             _navigationService.NavigateAsync(
                 $"{nameof(MainCustomTabPage)}?param=tes");
         });
+
 
         public MainViewModel(INavigationService navigationService)
         {

@@ -13,12 +13,15 @@ namespace Nomadic.ViewModels
 {
     public class LocalViewModel : TabAwareViewModel
     {
+        private bool _isDataLoaded;
+
         #region Properties
 
         /// <summary>
         /// The Curent Tab Item
         /// </summary>
         Tab _currentItem;
+
         public Tab CurrentItem
         {
             get { return _currentItem; }
@@ -33,6 +36,7 @@ namespace Nomadic.ViewModels
         /// True when location can't be detected
         /// </summary>
         bool _noLocation;
+
         public bool NoLocation
         {
             get { return _noLocation; }
@@ -53,7 +57,6 @@ namespace Nomadic.ViewModels
         public LocalViewModel()
         {
             CurrentItem = new Tab();
-            _ = LoadLocationNews();
         }
 
         #endregion
@@ -71,7 +74,7 @@ namespace Nomadic.ViewModels
 
             if (country != null)
             {
-                CurrentItem = new Tab { Title = country };
+                CurrentItem = new Tab {Title = country};
 
                 await SearchArticles(CurrentItem);
             }
@@ -92,9 +95,11 @@ namespace Nomadic.ViewModels
 
                 if (location != null)
                 {
-                    Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
+                    Console.WriteLine(
+                        $"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
 
-                    var placemarks = await Geocoding.GetPlacemarksAsync(location.Latitude, location.Longitude).ConfigureAwait(true);
+                    var placemarks = await Geocoding.GetPlacemarksAsync(location.Latitude, location.Longitude)
+                        .ConfigureAwait(true);
 
                     var placemark = placemarks?.FirstOrDefault();
 
@@ -165,7 +170,8 @@ namespace Nomadic.ViewModels
                 {
                     tab.IsBusy = true;
 
-                    var articles = await Helpers.NewsApiHelper.SearchArticles(new string[] { tab.Title }, page: tab.ArticlePage);
+                    var articles =
+                        await Helpers.NewsApiHelper.SearchArticles(new string[] {tab.Title}, page: tab.ArticlePage);
 
                     tab.Articles.AddRange(articles);
 
@@ -175,7 +181,8 @@ namespace Nomadic.ViewModels
                 {
                     tab.IsRefreshing = true;
 
-                    var articles = await Helpers.NewsApiHelper.SearchArticles(new string[] { tab.Title }, page: tab.ArticlePage);
+                    var articles =
+                        await Helpers.NewsApiHelper.SearchArticles(new string[] {tab.Title}, page: tab.ArticlePage);
 
                     tab.Articles.ReplaceRange(articles);
 
@@ -231,15 +238,18 @@ namespace Nomadic.ViewModels
             get
             {
                 return _refreshCommand ?? (_refreshCommand =
-                                          new Xamarin.Forms.Command(async (object obj) => await Reload()));
+                    new Xamarin.Forms.Command(async (object obj) => await Reload()));
             }
         }
 
         #endregion
-        
-        protected override void OnTabViewActivated()
+
+        protected override async void OnTabViewActivated()
         {
             base.OnTabViewActivated();
+            if (_isDataLoaded) return;
+            await LoadLocationNews();
+            _isDataLoaded = true;
         }
 
         protected override void OnTabViewDeactivated()

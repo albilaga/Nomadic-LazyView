@@ -1,7 +1,6 @@
 using System.ComponentModel;
 using System.Threading.Tasks;
 using Nomadic.ViewModels;
-using Prism.Navigation;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
 
@@ -13,8 +12,8 @@ namespace Nomadic.Controls
         private readonly ActivityIndicator _loadingIndicator;
         public ContentView LoadingView { get; set; }
 
-        private View _view;
-        private BaseViewModel _viewModel;
+        // private View _view;
+        // private BaseViewModel _viewModel;
 
         public LazyViewWithViewModel()
         {
@@ -39,6 +38,10 @@ namespace Nomadic.Controls
         {
             var viewModel = App.Current.Container.Resolve(typeof(TViewModel)) as BaseViewModel;
             BindingContext = viewModel;
+            if (Parent is ContentPage contentPage)
+            {
+                contentPage.BindingContext = viewModel;
+            }
             // if (BindingContext is IInitializeAsync initializeAsync)
             // {
             //     await initializeAsync.InitializeAsync(new NavigationParameters());
@@ -46,13 +49,21 @@ namespace Nomadic.Controls
             // viewModel.PropertyChanged += OnPropertyChanged;
             return base.LoadViewAsync();
             // _view = new TView();
-            // _view.SetBinding(View.IsVisibleProperty, nameof(BaseViewModel.Initialized));
+            // // _view.SetBinding(View.IsVisibleProperty, nameof(BaseViewModel.Initialized));
             // _view.BindingContext = this.BindingContext;
-            // // this.Content = (View) _view;
-            // this.SetIsLoaded(true);
-            // return new ValueTask((Task) Task.FromResult<bool>(true));
+            // this.Content = (View) _view;
+            this.SetIsLoaded(true);
+            return new ValueTask(Task.FromResult(true));
 
             // await base.LoadViewAsync();
+        }
+
+        protected override void OnBindingContextChanged()
+        {
+            // if (BindingContext is TViewModel)
+            // {
+            //     base.OnBindingContextChanged();
+            // }
         }
 
         private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -62,7 +73,9 @@ namespace Nomadic.Controls
                 Initialized: true
             })
             {
-                Content = _view;
+                var view = new TView();
+                view.BindingContext = BindingContext;
+                Content = view;
             }
         }
 

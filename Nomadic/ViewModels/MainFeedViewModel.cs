@@ -19,6 +19,8 @@ namespace Nomadic.ViewModels
 {
     public class MainFeedViewModel : TabAwareViewModel, IInitialize
     {
+        private bool _isDataLoaded;
+
         #region properties
 
         private LayoutState _currentState = LayoutState.Loading;
@@ -86,7 +88,6 @@ namespace Nomadic.ViewModels
         {
             TabItems = new ObservableRangeCollection<Tab>();
             CurrentTab = new Tab();
-            _ = GetUserData();
         }
 
         #endregion
@@ -122,6 +123,8 @@ namespace Nomadic.ViewModels
                 {
                     await LoadTabData(tab).ConfigureAwait(false);
                 }
+
+                _isDataLoaded = true;
             }
             else
             {
@@ -478,9 +481,12 @@ namespace Nomadic.ViewModels
         /// Gets an Instance of this class
         /// </summary>
         // public static MainFeedViewModel Instance { get; } = new MainFeedViewModel();
-        protected override void OnTabViewActivated()
+        protected override async void OnTabViewActivated()
         {
             base.OnTabViewActivated();
+            if (_isDataLoaded) return;
+            await GetUserData();
+            _isDataLoaded = true;
         }
 
         protected override void OnTabViewDeactivated()
@@ -494,9 +500,9 @@ namespace Nomadic.ViewModels
 
         public async void Initialize(INavigationParameters parameters)
         {
-            await Task.Delay(3000);
-            // CurrentState = LayoutState.Success;
-            Initialized = true;
+            // await Task.Delay(3000);
+            // // CurrentState = LayoutState.Success;
+            // Initialized = true;
         }
     }
 }

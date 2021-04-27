@@ -41,6 +41,11 @@ namespace Nomadic
             containerRegistry.RegisterForNavigation<ExplorePage, InterestsViewModel>();
             containerRegistry.RegisterForNavigation<LocalPage, LocalViewModel>();
             containerRegistry.RegisterForNavigation<SettingsPage, SettingsViewModel>();
+            containerRegistry.RegisterForNavigation<MainFeedPageWithoutLazyView, MainFeedViewModel>();
+            containerRegistry.RegisterForNavigation<MyInterestsPageWithoutLazyView, InterestsViewModel>();
+            containerRegistry.RegisterForNavigation<ExplorePageWithoutLazyView, InterestsViewModel>();
+            containerRegistry.RegisterForNavigation<LocalPageWithoutLazyView, LocalViewModel>();
+            containerRegistry.RegisterForNavigation<SettingsPageWithoutLazyView, SettingsViewModel>();
         }
 
         protected override async void OnInitialized()

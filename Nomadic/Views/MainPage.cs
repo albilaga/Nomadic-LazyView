@@ -9,6 +9,7 @@ namespace Nomadic.Views
         private readonly Button _tabViewButton;
         private readonly Button _tabPageButton;
         private readonly Button _customTabButton;
+        private readonly Button _tabPageWithoutLazyViewButton;
 
         public MainPage(INavigationService navigationService)
         {
@@ -29,12 +30,18 @@ namespace Nomadic.Views
                 Text = "Custom Tab",
                 Command = vm.OpenCustomTabbedPage,
             };
+            _tabPageWithoutLazyViewButton = new Button()
+            {
+                Text = "Tab Page without lazy view",
+                Command = vm.OpenTabbedPageWithoutLazyViewCommand
+            };
             Content = new StackLayout
             {
                 Children =
                 {
                     _tabViewButton,
                     _tabPageButton,
+                    _tabPageWithoutLazyViewButton,
                     _customTabButton
                 }
             };

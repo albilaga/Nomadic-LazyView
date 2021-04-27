@@ -16,6 +16,8 @@ namespace Nomadic.ViewModels
 {
     public class InterestsViewModel : TabAwareViewModel
     {
+        private bool _isDataLoaded;
+
         #region Properties
 
         /// <summary>
@@ -100,7 +102,6 @@ namespace Nomadic.ViewModels
         /// </summary>
         public InterestsViewModel()
         {
-            _ = LoadInterestsList();
         }
 
         #endregion
@@ -603,9 +604,12 @@ namespace Nomadic.ViewModels
         /// Gets an Instance of this class
         /// </summary>
         // public static InterestsViewModel Instance { get; } = new InterestsViewModel();
-        protected override void OnTabViewActivated()
+        protected override async void OnTabViewActivated()
         {
             base.OnTabViewActivated();
+            if (_isDataLoaded) return;
+            await LoadInterestsList();
+            _isDataLoaded = true;
         }
 
         protected override void OnTabViewDeactivated()

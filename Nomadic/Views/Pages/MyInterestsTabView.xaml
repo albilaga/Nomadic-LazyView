@@ -21,6 +21,6 @@
     <!-- <controls:LazyViewWithViewModel -->
     <!--     x:TypeArguments="pages:MyInterests, viewModels:InterestsViewModel" /> -->
     <!-- <pages:MyInterests xaml:RegionManager.RegionName="MyInterests" x:Name="MyInterests" /> -->
-    <controls:LazyViewWithViewModel IsVisible="False" x:Name="MyInterestView"
+    <controls:LazyViewWithViewModel x:Name="MyInterestView"
                                     x:TypeArguments="pages:MyInterests, viewModels:InterestsViewModel" />
 </views:TabViewItem>
