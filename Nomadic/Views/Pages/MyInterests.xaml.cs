@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Xamarin.Forms;
 
 namespace Nomadic.Views.Pages
@@ -30,7 +31,7 @@ namespace Nomadic.Views.Pages
         protected override void LayoutChildren(double x, double y, double width, double height)
         {
             base.LayoutChildren(x, y, width, height);
-            System.Diagnostics.Debug.WriteLine($"SW end in {GetType()}: {App.Stopwatch.ElapsedMilliseconds}");
+            Console.WriteLine($"SW end in {GetType()}: {App.Stopwatch.ElapsedMilliseconds}");
         }
     }
 }

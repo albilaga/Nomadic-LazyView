@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -38,7 +39,7 @@ namespace Nomadic.Views.Pages
         protected override void LayoutChildren(double x, double y, double width, double height)
         {
             base.LayoutChildren(x, y, width, height);
-            Debug.WriteLine($"SW end in {GetType()}: {App.Stopwatch.ElapsedMilliseconds}");
+            Console.WriteLine($"SW end in {GetType()}: {App.Stopwatch.ElapsedMilliseconds}");
         }
     }
 }
