@@ -15,23 +15,11 @@
 
 # iOS (iPhone 7+)
 
-SW end in Nomadic.MainTabbedViewPage: 576
-SW end in Nomadic.MainTabbedPage: 656
-SW end in Nomadic.MainTabbedPageWithoutLazyView: 973
-SW end in Nomadic.MainCustomTabPage: 574
-SW end in Nomadic.MainCustomTabPageInBackground: 657
-SW end in Nomadic.Views.Pages.MainFeed: 498
-
-SW end in Nomadic.MainTabbedViewPage: 543
-SW end in Nomadic.MainTabbedPage: 635
-SW end in Nomadic.MainTabbedPageWithoutLazyView: 920
-SW end in Nomadic.MainCustomTabPage: 556
-SW end in Nomadic.MainCustomTabPageInBackground: 594
-SW end in Nomadic.Views.Pages.MainFeed: 500
-
-SW end in Nomadic.MainTabbedViewPage: 537
-SW end in Nomadic.MainTabbedPage: 651
-SW end in Nomadic.MainTabbedPageWithoutLazyView: 925
-SW end in Nomadic.MainCustomTabPage: 563
-SW end in Nomadic.MainCustomTabPage: 587
-SW end in Nomadic.Views.Pages.MainFeed: 497
+| Views                      | Debug             |
+|----------------------------|-------------------|
+| TabView                    | 576<br>543<br>537 |
+| TabPage Lazy View          | 656<br>635<br>651 |
+| TabPage                    | 973<br>920<br>925 |
+| Custom Tab Page            | 574<br>556<br>563 |
+| Custom Tab Page Background | 657<br>594<br>587 |
+| Main Feed Page             | 498<br>500<br>497 |
