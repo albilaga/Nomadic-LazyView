@@ -26,5 +26,11 @@ namespace Nomadic.Views.Pages
                 collectionView.SelectedItem = null;
             }
         }
+        
+        protected override void LayoutChildren(double x, double y, double width, double height)
+        {
+            base.LayoutChildren(x, y, width, height);
+            System.Diagnostics.Debug.WriteLine($"SW end in {GetType()}: {App.Stopwatch.ElapsedMilliseconds}");
+        }
     }
 }

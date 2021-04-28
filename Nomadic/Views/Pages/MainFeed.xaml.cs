@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.Diagnostics;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Nomadic.Views.Pages
@@ -32,6 +33,12 @@ namespace Nomadic.Views.Pages
             var tapped = e.Item as Models.Article;
 
             await Navigation.PushAsync(new WebPage(tapped));
+        }
+        
+        protected override void LayoutChildren(double x, double y, double width, double height)
+        {
+            base.LayoutChildren(x, y, width, height);
+            Debug.WriteLine($"SW end in {GetType()}: {App.Stopwatch.ElapsedMilliseconds}");
         }
     }
 }
