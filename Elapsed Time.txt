@@ -6,6 +6,7 @@ SW end in Nomadic.MainTabbedPage: 4492 --> offscreen 4
 SW end in Nomadic.MainTabbedPageWithoutLazyView: 5499
 SW end in Nomadic.MainTabbedPageWithoutLazyView: 6134 --> offscreen 4
 SW end in Nomadic.MainCustomTabPage: 3878
+SW end in Nomadic.MainCustomTabPageInBackground: 3351
 SW end in Nomadic.Views.Pages.MainFeedPageWithoutLazyView: 3344
 
 SW end in Nomadic.MainTabbedViewPage: 3861
@@ -14,6 +15,7 @@ SW end in Nomadic.MainTabbedPage: 4537 --> offscreen 4
 SW end in Nomadic.MainTabbedPageWithoutLazyView: 5551
 SW end in Nomadic.MainTabbedPageWithoutLazyView: 6002 --> offscreen 4
 SW end in Nomadic.MainCustomTabPage: 3737
+SW end in Nomadic.MainCustomTabPageInBackground: 3430
 SW end in Nomadic.Views.Pages.MainFeedPageWithoutLazyView: 3481
 
 SW end in Nomadic.MainTabbedViewPage: 3831
@@ -22,6 +24,7 @@ SW end in Nomadic.MainTabbedPage: 4488 --> offscreen 4
 SW end in Nomadic.MainTabbedPageWithoutLazyView: 5638
 SW end in Nomadic.MainTabbedPageWithoutLazyView: 5984 --> offscreen 4
 SW end in Nomadic.MainCustomTabPage: 3787
+SW end in Nomadic.MainCustomTabPage: 3281
 SW end in Nomadic.Views.Pages.MainFeedPageWithoutLazyView: 3315
 
 ---
@@ -32,16 +35,19 @@ SW end in Nomadic.MainTabbedViewPage: 576
 SW end in Nomadic.MainTabbedPage: 656
 SW end in Nomadic.MainTabbedPageWithoutLazyView: 973
 SW end in Nomadic.MainCustomTabPage: 574
+SW end in Nomadic.MainCustomTabPageInBackground: 657
 SW end in Nomadic.Views.Pages.MainFeed: 498
 
 SW end in Nomadic.MainTabbedViewPage: 543
 SW end in Nomadic.MainTabbedPage: 635
 SW end in Nomadic.MainTabbedPageWithoutLazyView: 920
 SW end in Nomadic.MainCustomTabPage: 556
+SW end in Nomadic.MainCustomTabPageInBackground: 594
 SW end in Nomadic.Views.Pages.MainFeed: 500
 
 SW end in Nomadic.MainTabbedViewPage: 537
 SW end in Nomadic.MainTabbedPage: 651
 SW end in Nomadic.MainTabbedPageWithoutLazyView: 925
 SW end in Nomadic.MainCustomTabPage: 563
+SW end in Nomadic.MainCustomTabPage: 587
 SW end in Nomadic.Views.Pages.MainFeed: 497
